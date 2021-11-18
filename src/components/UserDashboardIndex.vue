@@ -2,8 +2,11 @@
   <div>
     <the-appbar />
     <the-sidebar />
-    <div class="pa-5 h-100">
-      <router-view />
+    <div class="pa-5" style="height: 100%; overflow: hidden">
+      <transition name="slide-x-transition" mode="out-in">
+        <router-view :key="$route.path" />
+        ></transition
+      >
     </div>
 
     <!-- <v-navigation-drawer app v-model="drawer">
