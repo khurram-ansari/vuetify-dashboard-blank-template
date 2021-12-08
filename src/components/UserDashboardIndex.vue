@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100%">
     <the-appbar />
     <the-sidebar />
     <div class="pa-5" style="height: 100%; overflow: hidden">

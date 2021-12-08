@@ -18,7 +18,7 @@ const routes = [
       {
         path: 'account',
         name: 'user.account',
-        component: () => import(/* webpackChunkName: "user.account" */ '@/views/UserDashboardAccount'),
+        component: () => import(/* webpackChunkName: "user.account" */ '@/views/UserDashboardAllEmployees'),
 
       }
     ]

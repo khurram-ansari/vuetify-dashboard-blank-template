@@ -32,7 +32,11 @@ export default {
       drawer: null,
       items: [
         { title: "Home", icon: "mdi-home-city", routeName: "user.home" },
-        { title: "My Account", icon: "mdi-account", routeName: "user.account" },
+        {
+          title: "Employees",
+          icon: "mdi-account-group",
+          routeName: "user.account",
+        },
       ],
     };
   },
