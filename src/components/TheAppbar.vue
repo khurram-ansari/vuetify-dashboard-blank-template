@@ -6,6 +6,7 @@
     flat
     color="white"
     app
+    class="px-5"
   >
     <v-app-bar-nav-icon
       @click="emitSidebarEvent"
@@ -30,16 +31,34 @@
     </v-menu>
 
     <v-divider vertical inset class="mx-4" />
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on: tooltip }">
-        <v-btn v-on="tooltip" rounded icon>
-          <v-avatar>
-            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-          </v-avatar>
-        </v-btn>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on: menu, attrs }">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on: tooltip }">
+            <v-btn v-bind="attrs" v-on="{ ...tooltip, ...menu }" rounded icon>
+              <v-avatar>
+                <img
+                  src="https://cdn.vuetifyjs.com/images/john.jpg"
+                  alt="John"
+                />
+              </v-avatar>
+            </v-btn>
+          </template>
+          <span>User Account</span>
+        </v-tooltip>
       </template>
-      <span>User Account</span>
-    </v-tooltip>
+      <v-list>
+        <v-list-item link>
+          <v-list-icon><v-icon class="mx-2">mdi-account</v-icon></v-list-icon>
+          <v-list-content> My Profile </v-list-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-icon><v-icon class="mx-2">mdi-logout</v-icon></v-list-icon>
+          <v-list-content> Logout </v-list-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
     <!-- <div class="text-center">
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">

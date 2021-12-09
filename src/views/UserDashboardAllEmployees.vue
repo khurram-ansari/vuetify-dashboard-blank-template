@@ -1,9 +1,6 @@
 <template>
   <div>
     <v-row>
-      <v-col sm="4" md="3"> <user-dashboard-data-card /> </v-col>
-    </v-row>
-    <v-row>
       <v-col>
         <v-btn dark><v-icon>mdi-plus</v-icon> Add Employee</v-btn>
       </v-col>
@@ -83,10 +80,20 @@
               </tr>
             </thead>
           </template>
+          <template v-slot:item.status="{ item }">
+            <v-chip dark class="orange lighten-1 text--center">
+              {{ item.status }}
+            </v-chip>
+          </template>
+          <template v-slot:item.designation="{ item }">
+            <v-chip dark class="grey lighten-1 text--center">
+              {{ item.designation }}
+            </v-chip>
+          </template>
 
           <template v-slot:item.actions="{ item }">
             <div class="d-flex">
-              <v-btn class="mx-2" fab depressed x-small>
+              <v-btn @click="editItem(item)" class="mx-2" fab depressed x-small>
                 <v-icon small> mdi-pencil </v-icon>
               </v-btn>
               <v-btn
@@ -130,10 +137,10 @@
 </template>
 
 <script>
-import UserDashboardDataCard from "../components/UserDashboardDataCard.vue";
+// import UserDashboardDataCard from "../components/UserDashboardDataCard.vue";
 export default {
   name: "UserDashboardAllEmployees",
-  components: { UserDashboardDataCard },
+  // components: { UserDashboardDataCard },
 
   data: () => ({
     selectedRows: [],
@@ -153,6 +160,7 @@ export default {
       { text: "Designation", value: "designation" },
       { text: "Email", value: "email" },
       { text: "Phone", value: "phone" },
+      { text: "status", value: "status" },
       { text: "Actions", value: "actions", sortable: false },
     ],
     desserts: [],
@@ -184,6 +192,7 @@ export default {
       val || this.close();
     },
     dialogDelete(val) {
+      console.table(val);
       val || this.closeDelete();
     },
   },
@@ -213,6 +222,7 @@ export default {
           gender: "Male",
           designation: "Developer I",
           phone: "474-476-7259",
+          status: "active",
         },
         {
           name: "Niko Mattacks",
@@ -220,6 +230,7 @@ export default {
           gender: "Female",
           designation: "Mechanical Systems Engineer",
           phone: "964-103-3518",
+          status: "active",
         },
         {
           name: "Stu Andrieux",
@@ -227,6 +238,7 @@ export default {
           gender: "Male",
           designation: "Human Resources Manager",
           phone: "921-490-1015",
+          status: "active",
         },
         {
           name: "Bria Limpkin",
@@ -234,6 +246,7 @@ export default {
           gender: "Female",
           designation: "Quality Engineer",
           phone: "923-398-9988",
+          status: "active",
         },
         {
           name: "Oona Bartke",
@@ -241,6 +254,7 @@ export default {
           gender: "Male",
           designation: "Information Systems Manager",
           phone: "728-518-5218",
+          status: "active",
         },
         {
           name: "Chelsey Kunrad",
@@ -248,6 +262,7 @@ export default {
           gender: "Female",
           designation: "Programmer Analyst I",
           phone: "366-384-0008",
+          status: "active",
         },
         {
           name: "Basilio Joblin",
@@ -255,6 +270,7 @@ export default {
           gender: "Female",
           designation: "Media Manager IV",
           phone: "964-958-4118",
+          status: "active",
         },
         {
           name: "Leta Powlesland",
@@ -262,6 +278,7 @@ export default {
           gender: "Female",
           designation: "Geological Engineer",
           phone: "294-709-2226",
+          status: "active",
         },
         {
           name: "Granger Shawyer",
@@ -269,6 +286,7 @@ export default {
           gender: "Female",
           designation: "Design Engineer",
           phone: "894-229-1968",
+          status: "active",
         },
         {
           name: "Kalila Baccup",
@@ -276,6 +294,7 @@ export default {
           gender: "Female",
           designation: "Pharmacist",
           phone: "402-834-0723",
+          status: "active",
         },
         {
           name: "Lucille Mitrikhin",
@@ -283,6 +302,7 @@ export default {
           gender: "Male",
           designation: "Office Assistant I",
           phone: "592-359-9058",
+          status: "active",
         },
         {
           name: "Tabby Higgonet",
@@ -290,6 +310,7 @@ export default {
           gender: "Male",
           designation: "Programmer II",
           phone: "894-355-6801",
+          status: "active",
         },
         {
           name: "Tammi Chuney",
@@ -297,6 +318,7 @@ export default {
           gender: "Female",
           designation: "Nurse Practicioner",
           phone: "823-154-6640",
+          status: "active",
         },
         {
           name: "Othello Gerram",
@@ -304,6 +326,7 @@ export default {
           gender: "Female",
           designation: "Software Consultant",
           phone: "781-264-9535",
+          status: "active",
         },
         {
           name: "Caressa Redmire",
@@ -311,6 +334,7 @@ export default {
           gender: "Male",
           designation: "Engineer I",
           phone: "474-235-3953",
+          status: "active",
         },
         {
           name: "Nadiya Ebanks",
@@ -318,6 +342,7 @@ export default {
           gender: "Male",
           designation: "Internal Auditor",
           phone: "575-881-4169",
+          status: "active",
         },
         {
           name: "Trenna Newton",
@@ -325,6 +350,7 @@ export default {
           gender: "Male",
           designation: "Compensation Analyst",
           phone: "707-423-0501",
+          status: "active",
         },
         {
           name: "Sabina Chiechio",
@@ -332,6 +358,7 @@ export default {
           gender: "Female",
           designation: "Chemical Engineer",
           phone: "424-120-2921",
+          status: "active",
         },
         {
           name: "Patti Daynter",
@@ -339,6 +366,7 @@ export default {
           gender: "Male",
           designation: "Staff Accountant III",
           phone: "850-449-0522",
+          status: "active",
         },
         {
           name: "Alfred Hamon",
@@ -346,6 +374,7 @@ export default {
           gender: "Male",
           designation: "Food Chemist",
           phone: "809-488-3818",
+          status: "active",
         },
       ];
     },
