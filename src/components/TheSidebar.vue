@@ -31,11 +31,11 @@ export default {
     return {
       drawer: null,
       items: [
-        { title: "Home", icon: "mdi-home-city", routeName: "user.home" },
+        { title: "Home", icon: "mdi-home-city", routeName: "dash.home" },
         {
           title: "Employees",
           icon: "mdi-account-group",
-          routeName: "user.account",
+          routeName: "dash.employee",
         },
       ],
     };

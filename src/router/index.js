@@ -11,13 +11,13 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'user.home',
+        name: 'dash.home',
         component: () => import(/* webpackChunkName: "user.home" */ '@/views/UserDashboardHome'),
 
       },
       {
-        path: 'account',
-        name: 'user.account',
+        path: 'employee',
+        name: 'dash.employee',
         component: () => import(/* webpackChunkName: "user.account" */ '@/views/UserDashboardAllEmployees'),
 
       }
