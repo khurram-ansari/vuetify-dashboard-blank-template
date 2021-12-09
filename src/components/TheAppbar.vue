@@ -15,7 +15,7 @@
     <v-spacer />
     <v-menu offset-y>
       <template v-slot:activator="{ on: menu, attrs }">
-        <v-badge content="3" bordered color="red" overlap>
+        <v-badge :value="3" :content="3" color="red" overlap>
           <v-tooltip bottom>
             <template v-slot:activator="{ on: tooltip }">
               <v-btn v-bind="attrs" v-on="{ ...tooltip, ...menu }" rounded icon>

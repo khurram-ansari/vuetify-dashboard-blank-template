@@ -17,7 +17,7 @@
         <v-text-field
           style="max-width: 400px"
           filled
-          v-model="search"
+          v-model.trim="search"
           hide-details
           rounded
           prepend-inner-icon="mdi-magnify"
@@ -122,16 +122,18 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
+      { text: "#", value: "protein", sortable: false, filterable: false },
+
       {
-        text: "Dessert (100g serving)",
+        text: "Name",
         align: "start",
         sortable: false,
         value: "name",
       },
-      { text: "Calories", value: "calories" },
-      { text: "Fat (g)", value: "fat" },
-      { text: "Carbs (g)", value: "carbs" },
-      { text: "Protein (g)", value: "protein" },
+
+      { text: "Designation", value: "calories" },
+      { text: "Email", value: "fat" },
+      { text: "Phone", value: "carbs" },
       { text: "Actions", value: "actions", sortable: false },
     ],
     desserts: [],
