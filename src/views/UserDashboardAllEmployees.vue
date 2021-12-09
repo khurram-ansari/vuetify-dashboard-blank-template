@@ -43,14 +43,20 @@
             <thead>
               <tr>
                 <th v-for="header in props.headers" :key="header.value">
-                  <v-simple-checkbox
-                    :ripple="false"
-                    v-if="header.value === 'data-table-select'"
-                    v-model="props.everyItem"
-                    :indeterminate="props.someItems && !props.everyItem"
-                    color="grey darken-4"
-                    @input="on['toggle-select-all']"
-                  ></v-simple-checkbox>
+                  <v-tooltip bottom v-if="header.value === 'data-table-select'">
+                    <template v-slot:activator="{ on: tooltip }">
+                      <v-simple-checkbox
+                        v-on="tooltip"
+                        :ripple="false"
+                        v-model="props.everyItem"
+                        :indeterminate="props.someItems && !props.everyItem"
+                        color="grey darken-4"
+                        @input="on['toggle-select-all']"
+                      ></v-simple-checkbox>
+                    </template>
+                    <span>Select All</span>
+                  </v-tooltip>
+
                   <template v-else>
                     {{ header.text.toUpperCase() }}
                   </template>
