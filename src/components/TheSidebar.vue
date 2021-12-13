@@ -3,7 +3,6 @@
     <v-list-item class="px-2">
       <v-list-item-title>SparkTech Solutions</v-list-item-title>
     </v-list-item>
-
     <v-list dense>
       <v-list-item
         exact

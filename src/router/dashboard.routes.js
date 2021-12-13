@@ -14,7 +14,13 @@ export default {
         {
             path: 'employee',
             name: 'dash.employee',
-            component: () => import(/* webpackChunkName: "user.account" */ '@/views/UserDashboardAllEmployees'),
+            component: () => import(/* webpackChunkName: "user.account" */ '@/views/EmployeeAll'),
+
+        },
+        {
+            path: 'employee/add',
+            name: 'dash.employee.add',
+            component: () => import(/* webpackChunkName: "user.account" */ '@/views/EmployeeAdd'),
 
         }
     ]
